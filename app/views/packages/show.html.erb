@@ -1,0 +1,24 @@
+<%= image_tag("basket2.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<%= image_tag("props1.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<%= image_tag("a.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<%= image_tag("goodies2.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<br>
+<br>
+<h2 align = "center">Following are the details of the selected Package</h2>
+<br>
+<h4 align = "center">Package Category: <%= @package.category.name %> ---------------------- Package Price:<%= @package.price %>---------------------- Package Validity: <%= @package.validity %></h4>
+<h2 align="center"><%= @package.title %></h2>
+
+
+<h4 align = "center"><%= @package.description %></h4>
+<h4 align = "center">
+<%= link_to "Back", packages_path%>
+<div class = "links btn-group">
+<%if user_signed_in?%>
+	<% if @package.user_id == current_user.id %>
+		<%= link_to "Edit",edit_package_path(@package) %>
+		<%= link_to "Delete", package_path(@package),method: :delete, data: {confirm: "Are you sure?"} %>
+	<%end%>
+<%end%>
+</div>
+</h4>

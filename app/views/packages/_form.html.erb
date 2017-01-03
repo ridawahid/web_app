@@ -1,0 +1,10 @@
+<%= simple_form_for @package do |f| %>
+  
+  <%= select_tag(:category_id, options_for_select(@categories),:prompt => "Select Category")%>
+
+  <%= f.input :title, label: 'Package Name :',input_html:{maxlength: 20} %>
+  <%= f.input :description,  label: 'Package Description :', placeholder: 'No more than 50 characters'%>
+  <%= f.input :price,  label: 'Package Price :'%>
+  <%= f.input :validity, label: 'Package Validity :' %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,21 @@
+<%= image_tag("basket1.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<%= image_tag("prop2.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<%= image_tag("goodies1.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<%= image_tag("goodies2.jpeg", :alt=> "home page", :width=>280, :height=>200) %>
+<h3>We provide main four category products: Gift Baskets, Props for Parties, Goodie Bags, Complete Party sets</h3>
+<br>
+<h4>Please visit our facebook page for more information <a href="https://www.facebook.com/pg/TheArtifyingFactory">The Art Factory</a></h4>
+<br>
+<h4>Following is the list of Packages we offer, you can filter the packages with the "Sort" option in the menu</h4>
+<h1 class = "current-category"> <%= params[:category] %></h1>
+
+<% if @packages.count ==0%>
+	<h3>No Packages in this category</h3>
+<%else %>
+	
+	<% @packages.each do |p| %>
+		<h2><%= link_to p.title, package_path(p) %></h2>
+	<% end %>
+	
+<%end%>
+
